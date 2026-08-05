@@ -11,7 +11,7 @@ const Contact = () => {
 
     // REPLACE THESE WITH YOUR ACTUAL EMAILJS KEYS
     emailjs.sendForm(
-      'service_h8sztvi',
+      'service_cqmtmfu',
       'template_s9tdi4f',
       formRef.current,
       '4rjqkl7zEI2CfIbuf'
