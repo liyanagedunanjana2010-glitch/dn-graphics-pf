@@ -11,10 +11,10 @@ const Contact = () => {
 
     // REPLACE THESE WITH YOUR ACTUAL EMAILJS KEYS
     emailjs.sendForm(
-      'YOUR_SERVICE_ID',
-      'YOUR_TEMPLATE_ID',
+      'service_h8sztvi',
+      'template_s9tdi4f',
       formRef.current,
-      'YOUR_PUBLIC_KEY'
+      '4rjqkl7zEI2CfIbuf'
     )
     .then(() => {
       setStatus('Message Sent Successfully!');
