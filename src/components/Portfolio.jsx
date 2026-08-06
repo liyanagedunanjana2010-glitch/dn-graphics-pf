@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-// 📸 1. ඔබ ළඟ ඇති Images නිවැරදිව Import කරගන්න
+// 📸 Images import කරගැනීම
 import thumb1 from '../assets/thumbnail-1.jpg';
 import thumb2 from '../assets/thumbnail-2.jpg';
 import thumb3 from '../assets/thumbnail-3.jpg';
@@ -26,6 +26,14 @@ const portfolioData = [
     category: "Posters",
     image: thumb3,
     description: "Creative promotional poster design for events."
+  },
+  // ➕ Logo Filter එක සඳහා එකතු කළ project එක
+  {
+    id: 4,
+    title: "Modern Brand Logo",
+    category: "Logo",
+    image: thumb1, // වෙනත් Logo Image එකක් ඇති විට එය import කර මෙතැනට යොදන්න
+    description: "Minimalist logo design for business branding."
   }
 ];
 
