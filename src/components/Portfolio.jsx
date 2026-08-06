@@ -1,49 +1,33 @@
 import React, { useState } from 'react';
 
-// 📸 1. Image Files Import කරගන්න
-import bannerImg from '../assets/thumbnail-1.jpg';
+// 📸 1. ඔබ ළඟ ඇති Images නිවැරදිව Import කරගන්න
 import thumb1 from '../assets/thumbnail-1.jpg';
 import thumb2 from '../assets/thumbnail-2.jpg';
 import thumb3 from '../assets/thumbnail-3.jpg';
-import poster1Img from '../assets/poster1.jpg';
-import logo1Img from '../assets/logo1.jpg';
 
 const portfolioData = [
-  // Graphics Section Thumbnail
   {
     id: 1,
     title: "YouTube Thumbnail Design",
     category: "Graphics",
-    image: thumb1, // 👈 'poster1' වෙනුවට 'thumb1' යොදන්න
+    image: thumb1,
     description: "High CTR video thumbnail designs for YouTube channels."
   },
-  // Thumbnail Section Thumbnail
   {
     id: 2,
     title: "Social Media Banner",
     category: "Graphics",
-    image: myThumbnail, // 👈 මෙතැනට 'myThumbnail' ලෙස ලබා දෙන්න
-    description: "High CTR video thumbnail designs for YouTube channels."
+    image: thumb2,
+    description: "Engaging post designs for business pages."
   },
-  // Poster Section Thumbnail
   {
     id: 3,
-    title: "Event Flyer Poster",
+    title: "Brand Poster Design",
     category: "Posters",
-    image: poster1Img,
-    description: "Creative flyer design for music concert."
-  },
-  // Logo Section Thumbnail
-  {
-    id: 4,
-    title: "Modern Brand Logo",
-    category: "Logo",
-    image: logo1Img,
-    description: "Minimalist and modern identity design."
+    image: thumb3,
+    description: "Creative promotional poster design for events."
   }
 ];
-
-// ... (ඉතිරි Code එක එලෙසම තබන්න)
 
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState('All');
