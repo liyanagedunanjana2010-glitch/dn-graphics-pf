@@ -1,32 +1,47 @@
 import React, { useState } from 'react';
 
-// 💡 1. ඔබගේ Designs වල Images මෙතැනට Import කරගන්න
-// import project1 from '../assets/project1.jpg';
-// import project2 from '../assets/project2.jpg';
+// 📸 1. Image Files Import කරගන්න
+import bannerImg from '../assets/banner.jpg';
+import myThumbnail from '../assets/thumbnail-1.jpg';
+import poster1Img from '../assets/poster1.jpg';
+import logo1Img from '../assets/logo1.jpg';
 
 const portfolioData = [
+  // Graphics Section Thumbnail
   {
     id: 1,
-    title: "Modern Brand Logo",
-    category: "Logo",
-    image: "https://via.placeholder.com/400x300?text=Logo+Design", // Image එක එකතු කළ පසු 'project1' වැනි නම යොදන්න
-    description: "Minimalist and modern identity design."
-  },
-  {
-    id: 2,
-    title: "Event Promotion Poster",
-    category: "Posters",
-    image: "https://via.placeholder.com/400x300?text=Poster+Design",
-    description: "Creative flyer design for music concert."
-  },
-  {
-    id: 3,
     title: "Social Media Banner",
     category: "Graphics",
-    image: "https://via.placeholder.com/400x300?text=Social+Media",
+    image: bannerImg,
     description: "Engaging post designs for business pages."
   },
+  // Thumbnail Section Thumbnail
+  {
+    id: 2,
+    title: "Social Media Banner",
+    category: "Graphics",
+    image: myThumbnail, // 👈 මෙතැනට 'myThumbnail' ලෙස ලබා දෙන්න
+    description: "High CTR video thumbnail designs for YouTube channels."
+  },
+  // Poster Section Thumbnail
+  {
+    id: 3,
+    title: "Event Flyer Poster",
+    category: "Posters",
+    image: poster1Img,
+    description: "Creative flyer design for music concert."
+  },
+  // Logo Section Thumbnail
+  {
+    id: 4,
+    title: "Modern Brand Logo",
+    category: "Logo",
+    image: logo1Img,
+    description: "Minimalist and modern identity design."
+  }
 ];
+
+// ... (ඉතිරි Code එක එලෙසම තබන්න)
 
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState('All');
