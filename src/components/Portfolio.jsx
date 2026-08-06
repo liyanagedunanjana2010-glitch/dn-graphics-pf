@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 // 📸 1. Image Files Import කරගන්න
-import bannerImg from '../assets/banner.jpg';
+import bannerImg from '../assets/thumbnail-1.jpg';
+import thumb1 from '../assets/thumbnail-1.jpg';
 import myThumbnail from '../assets/thumbnail-1.jpg';
 import poster1Img from '../assets/poster1.jpg';
 import logo1Img from '../assets/logo1.jpg';
@@ -10,10 +11,10 @@ const portfolioData = [
   // Graphics Section Thumbnail
   {
     id: 1,
-    title: "Social Media Banner",
+    title: "YouTube Thumbnail Design",
     category: "Graphics",
-    image: bannerImg,
-    description: "Engaging post designs for business pages."
+    image: thumb1, // 👈 Import කරගත් Variable එක මෙතැනට යොදන්න
+    description: "Engaging video thumbnail designs for YouTube channels."
   },
   // Thumbnail Section Thumbnail
   {
