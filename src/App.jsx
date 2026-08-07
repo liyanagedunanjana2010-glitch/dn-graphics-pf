@@ -8,12 +8,14 @@ import WhatsAppButton from './components/WhatsAppButton';
 
 function App() {
   return (
-    <div className="bg-black min-h-screen text-white">
+    <div className="bg-white text-black dark:bg-black dark:text-white transition-colors duration-500 min-h-screen">
       <Navbar />
       <Hero />
+      <About />
       <Services />
       <Portfolio />
       <Contact />
+      <AudioPlayer />
       <WhatsAppButton />
     </div>
   );
