@@ -6,11 +6,12 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Contact', href: '#contact' },
-  ];
+  { name: 'Home', href: '#home' },
+  { name: 'Services', href: '#services' },
+  { name: 'Portfolio', href: '#portfolio' },
+  { name: 'Reviews', href: '#testimonials' }, // 👈 එකතු කළ හැක
+  { name: 'Contact', href: '#contact' },
+];
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 glass border-b border-white/10">
