@@ -16,7 +16,6 @@ function App() {
         <Portfolio />
         <Contact />
       </main>
-      <AudioPlayer />
       <WhatsAppButton />
     </div>
   );
