@@ -1,17 +1,16 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'Services', href: '#services' },
-  { name: 'Portfolio', href: '#portfolio' },
-  { name: 'Reviews', href: '#testimonials' }, // 👈 එකතු කළ හැක
-  { name: 'Contact', href: '#contact' },
-];
+    { name: 'Home', href: '#home' },
+    { name: 'Services', href: '#services' },
+    { name: 'Portfolio', href: '#portfolio' },
+    { name: 'Reviews', href: '#testimonials' },
+    { name: 'Contact', href: '#contact' },
+  ];
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 glass border-b border-white/10">
@@ -34,9 +33,8 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Desktop Right Actions: Theme Toggle + CTA Button */}
-        <div className="hidden md:flex items-center gap-4">
-          <ThemeToggle /> {/* 👈 Desktop එකට Theme Toggle එක */}
+        {/* Desktop Hire Us Button */}
+        <div className="hidden md:flex items-center">
           <a
             href="#contact"
             className="bg-primary text-black font-semibold px-5 py-2 rounded-full hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105"
@@ -45,9 +43,8 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Mobile View Right Controls */}
-        <div className="flex items-center gap-3 md:hidden">
-          <ThemeToggle /> {/* 👈 Mobile Menu එකට එළියෙන් Toggle එක (පහසුවෙන් click කිරීමට) */}
+        {/* Mobile Hamburger Menu */}
+        <div className="flex items-center md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-white focus:outline-none"
