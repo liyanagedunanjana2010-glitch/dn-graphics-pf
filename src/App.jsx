@@ -6,6 +6,7 @@ import Portfolio from './components/Portfolio';
 import Testimonials from './components/Testimonials'; // 👈 1. Import කරගන්න
 import Contact from './components/Contact';
 import WhatsAppButton from './components/WhatsAppButton';
+import FacebookButton from './components/FacebookButton';
 
 function App() {
   return (
