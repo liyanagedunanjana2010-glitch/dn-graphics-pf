@@ -8,7 +8,7 @@ import WhatsAppButton from './components/WhatsAppButton';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-950 text-white selection:bg-yellow-400 selection:text-black">
+    <div className="min-h-screen dark:bg-gray-950 bg-white dark:text-white text-black transition-colors duration-300">
       <Navbar />
       <main>
         <Hero />
