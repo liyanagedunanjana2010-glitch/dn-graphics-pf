@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const Testimonials = () => {
-  // Default Reviews (ආරම්භක Reviews)
+  // Default Reviews (Avatar URLs සමඟ)
   const [reviews, setReviews] = useState([
     {
       id: 1,
@@ -9,6 +9,7 @@ const Testimonials = () => {
       role: "Content Creator",
       review: "DN Graphics made my YouTube thumbnails! CTR went up by 15% in just two weeks.",
       rating: 5,
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sahan"
     },
     {
       id: 2,
@@ -16,6 +17,15 @@ const Testimonials = () => {
       role: "Small Business Owner",
       review: "Amazing logo design! Understood my brand vision clearly and delivered fast.",
       rating: 5,
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Nipuni"
+    },
+    {
+      id: 3,
+      name: "Kasun Jayawardena",
+      role: "Event Organizer",
+      review: "The poster design for our music event was top-notch. Very professional service!",
+      rating: 5,
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Kasun"
     }
   ]);
 
@@ -24,33 +34,38 @@ const Testimonials = () => {
     name: '',
     role: '',
     review: '',
-    rating: 5
+    rating: 5,
+    avatarUrl: ''
   });
 
   const [showForm, setShowForm] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  // Form input changes handle කිරීම
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Submit කරද්දී අලුත් Review එක එකතු කිරීම
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.review) return;
+
+    // Client පින්තූර Link එකක් නොදුන්නොත් නම අනුව Auto Avatar එකක් සාදයි
+    const generatedAvatar = formData.avatarUrl.trim() !== '' 
+      ? formData.avatarUrl 
+      : `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(formData.name)}`;
 
     const newReview = {
       id: Date.now(),
       name: formData.name,
       role: formData.role || 'Client',
       review: formData.review,
-      rating: Number(formData.rating)
+      rating: Number(formData.rating),
+      avatar: generatedAvatar
     };
 
     setReviews([newReview, ...reviews]);
     setSubmitted(true);
-    setFormData({ name: '', role: '', review: '', rating: 5 });
+    setFormData({ name: '', role: '', review: '', rating: 5, avatarUrl: '' });
 
     setTimeout(() => {
       setSubmitted(false);
@@ -67,7 +82,6 @@ const Testimonials = () => {
           <h2 className="text-4xl font-bold text-yellow-400 mb-2">Client Testimonials</h2>
           <p className="text-gray-400">What my clients say & leave your feedback!</p>
           
-          {/* Review එකක් එකතු කරන්න Button එක */}
           <button
             onClick={() => setShowForm(!showForm)}
             className="mt-6 bg-yellow-400 text-black font-semibold px-6 py-2.5 rounded-full hover:bg-yellow-300 transition duration-300 shadow-lg"
@@ -76,7 +90,7 @@ const Testimonials = () => {
           </button>
         </div>
 
-        {/* 📝 Add Review Form */}
+        {/* Add Review Form */}
         {showForm && (
           <div className="max-w-xl mx-auto mb-16 bg-gray-800 p-8 rounded-2xl border border-gray-700 shadow-2xl">
             <h3 className="text-2xl font-bold text-white mb-6 text-center">Leave a Review</h3>
@@ -107,9 +121,24 @@ const Testimonials = () => {
                     name="role"
                     value={formData.role}
                     onChange={handleChange}
-                    placeholder="e.g. Youtuber / Entrepreneur"
+                    placeholder="e.g. YouTuber / Business Owner"
                     className="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-yellow-400"
                   />
+                </div>
+
+                <div>
+                  <label className="block text-gray-300 text-sm mb-1">Profile Picture URL (Optional)</label>
+                  <input
+                    type="url"
+                    name="avatarUrl"
+                    value={formData.avatarUrl}
+                    onChange={handleChange}
+                    placeholder="https://example.com/photo.jpg"
+                    className="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-yellow-400"
+                  />
+                  <span className="text-xs text-gray-400 mt-1 block">
+                    * හිස්ව තැබුවහොත් Auto-Avatar එකක් සාදනු ඇත.
+                  </span>
                 </div>
 
                 <div>
@@ -150,12 +179,12 @@ const Testimonials = () => {
           </div>
         )}
 
-        {/* 🌟 Reviews Grid */}
+        {/* Reviews Cards with Avatars */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {reviews.map((item) => (
             <div
               key={item.id}
-              className="bg-gray-800/80 p-6 rounded-2xl border border-gray-700/50 shadow-xl flex flex-col justify-between hover:border-yellow-400/50 transition duration-300"
+              className="bg-gray-800/80 p-6 rounded-2xl border border-gray-700/50 shadow-xl flex flex-col justify-between hover:border-yellow-400/50 transition duration-300 transform hover:-translate-y-1"
             >
               <div>
                 <div className="flex text-yellow-400 mb-4">
@@ -168,9 +197,17 @@ const Testimonials = () => {
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-gray-700/50">
-                <h4 className="font-bold text-white text-base">{item.name}</h4>
-                <p className="text-xs text-yellow-400">{item.role}</p>
+              {/* Avatar + Client Details */}
+              <div className="flex items-center gap-4 pt-4 border-t border-gray-700/50">
+                <img
+                  src={item.avatar}
+                  alt={item.name}
+                  className="w-12 h-12 rounded-full bg-gray-700 border-2 border-yellow-400/50 object-cover"
+                />
+                <div>
+                  <h4 className="font-bold text-white text-base">{item.name}</h4>
+                  <p className="text-xs text-yellow-400">{item.role}</p>
+                </div>
               </div>
             </div>
           ))}
