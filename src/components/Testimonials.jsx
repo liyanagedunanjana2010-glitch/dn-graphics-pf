@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const Testimonials = () => {
-  // Default Reviews (Avatar URLs සමඟ)
+  // Default Reviews
   const [reviews, setReviews] = useState([
     {
       id: 1,
@@ -18,18 +18,9 @@ const Testimonials = () => {
       review: "Amazing logo design! Understood my brand vision clearly and delivered fast.",
       rating: 5,
       avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Nipuni"
-    },
-    {
-      id: 3,
-      name: "Kasun Jayawardena",
-      role: "Event Organizer",
-      review: "The poster design for our music event was top-notch. Very professional service!",
-      rating: 5,
-      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Kasun"
     }
   ]);
 
-  // Form State
   const [formData, setFormData] = useState({
     name: '',
     role: '',
@@ -49,7 +40,6 @@ const Testimonials = () => {
     e.preventDefault();
     if (!formData.name || !formData.review) return;
 
-    // Client පින්තූර Link එකක් නොදුන්නොත් නම අනුව Auto Avatar එකක් සාදයි
     const generatedAvatar = formData.avatarUrl.trim() !== '' 
       ? formData.avatarUrl 
       : `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(formData.name)}`;
@@ -127,21 +117,6 @@ const Testimonials = () => {
                 </div>
 
                 <div>
-                  <label className="block text-gray-300 text-sm mb-1">Profile Picture URL (Optional)</label>
-                  <input
-                    type="url"
-                    name="avatarUrl"
-                    value={formData.avatarUrl}
-                    onChange={handleChange}
-                    placeholder="https://example.com/photo.jpg"
-                    className="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-2.5 text-white focus:outline-none focus:border-yellow-400"
-                  />
-                  <span className="text-xs text-gray-400 mt-1 block">
-                    * හිස්ව තැබුවහොත් Auto-Avatar එකක් සාදනු ඇත.
-                  </span>
-                </div>
-
-                <div>
                   <label className="block text-gray-300 text-sm mb-1">Rating</label>
                   <select
                     name="rating"
@@ -179,12 +154,12 @@ const Testimonials = () => {
           </div>
         )}
 
-        {/* Reviews Cards with Avatars */}
+        {/* Reviews Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {reviews.map((item) => (
             <div
               key={item.id}
-              className="bg-gray-800/80 p-6 rounded-2xl border border-gray-700/50 shadow-xl flex flex-col justify-between hover:border-yellow-400/50 transition duration-300 transform hover:-translate-y-1"
+              className="bg-gray-800/80 p-6 rounded-2xl border border-gray-700/50 shadow-xl flex flex-col justify-between"
             >
               <div>
                 <div className="flex text-yellow-400 mb-4">
@@ -197,7 +172,6 @@ const Testimonials = () => {
                 </p>
               </div>
 
-              {/* Avatar + Client Details */}
               <div className="flex items-center gap-4 pt-4 border-t border-gray-700/50">
                 <img
                   src={item.avatar}
