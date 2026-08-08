@@ -7,7 +7,8 @@ import Portfolio from './components/Portfolio';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import WhatsAppButton from './components/WhatsAppButton';
-import FacebookButton from './components/FacebookButton'; // 👈 1. Import එක තිබිය යුතුය
+import FacebookButton from './components/FacebookButton';
+import PortfolioTabs from './components/PortfolioTabs'; // 👈 1. Import එක තිබිය යුතුය
 
 function App() {
   return (
