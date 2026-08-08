@@ -23,7 +23,6 @@ function App() {
       </main>
       <WhatsAppButton />
       <FacebookButton /> {/* 👈 2. මෙතැන එකතු කර තිබිය යුතුය */}
-      <PortfolioTabs />
     </div>
   );
 }
